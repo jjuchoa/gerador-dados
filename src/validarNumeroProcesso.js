@@ -30,7 +30,10 @@ function validarNumeroProcesso(numeroProcesso) {
         return regex.test(numeroProcesso);        
     }
 }
+<<<<<<< HEAD
 
 module.exports = validarNumeroProcesso;
 
 //console.log(validarNumeroProcesso('1606400-01.2024.4.03.6301'));
+=======
+>>>>>>> 8f3b0a31c7dddc934662cecf2a459e48cfb8a13f

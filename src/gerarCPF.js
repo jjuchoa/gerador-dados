@@ -26,6 +26,9 @@ function gerarCPF() {
     return `${cpf.slice(0, 3)}.${cpf.slice(3, 6)}.${cpf.slice(6, 9)}-${cpf.slice(9)}`;
 }
 
+<<<<<<< HEAD
 module.exports = gerarCPF;
 
+=======
+>>>>>>> 8f3b0a31c7dddc934662cecf2a459e48cfb8a13f
 console.log(gerarCPF());

@@ -29,5 +29,8 @@ function validarCPF(cpf) {
 
     return segundoDigito === parseInt(cpf[10]);
 }
+<<<<<<< HEAD
 
 module.exports = validarCPF;
+=======
+>>>>>>> 8f3b0a31c7dddc934662cecf2a459e48cfb8a13f
