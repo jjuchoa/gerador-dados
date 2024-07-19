@@ -15,7 +15,3 @@ function gerarNumeroProcesso(numero) {
 }
 
 module.exports = gerarNumeroProcesso;
-
-/*for (let i = 400; i < 405; i++) {
-    console.log(gerarNumeroProcesso(i))
-}*/

@@ -1,52 +1,25 @@
-function calcularDigitoVerificador(numero) {
+function calcularDigitoVerificador(numeroProcesso) {
+    const regex = /^\d{7}-\d{2}\.\d{4}\.\d{1}\.\d{2}\.\d{4}$/;
+    var numeroString = numeroProcesso;
+
+    // Expressão regular para verificar se o proceso foi enviado com mascara
+    if (regex.test(numeroProcesso)==true) {
+        numeroString = numeroProcesso.replace(/[\.\/\.\/\.\/\-]/g, '', '');
+        numeroString = numeroString.slice(0, 7) + numeroString.slice(9, 25);
+    }  
+
+    if (regex.test(numeroProcesso)==false && numeroProcesso.length > 18) {
+        numeroString = numeroString.slice(0, 7) + numeroString.slice(9, 25);
+    } 
+
+    // Concatena o número do processo + "00" (OOOO+00)
+    var numeroStringConcatenado = numeroString + "00";
     
-    // Verifica se o valor recebido é uma string 
-    if  (typeof numero !== 'string') {
-       numeroString = numero.toString();
-    } else {
-        numeroString = numero;
-    }
-
-    // Remove espaços em branco
-    numeroString = numeroString.replace(/\s+/g, '');
-    console.log(numeroString);
-
-    // Armazena o valor do processo (NNNNNNN)
-    const processo = numeroString.slice(0, 7)
-    console.log(processo);
-
-    // Concatena o ano com poder judiciário e tribunal (AAAAJTR)
-    const anoConcatenado = numeroString.slice(7, 14);
-    console.log(anoConcatenado);
-
-    // Concatena o unidade organica + "00" (OOOO00)
-    //const unidadeOrganica = numeroString.slice(14, 18) + "00";
-    const unidadeOrganica = numeroString.slice(14, 18);
-    console.log(unidadeOrganica);
-
-    // Converte para um número inteiro
-   const processoInt = BigInt(processo);
-    const anoConcatenadoInt = BigInt(anoConcatenado);
-    const unidadeOrganicaInt = BigInt(unidadeOrganica);
-
-    const R1 = processoInt % BigInt(97);
-    console.log(R1);
-
-    const R2 = BigInt(R1 + anoConcatenadoInt) % BigInt(97);
-    console.log(R2);
-
-    const R3 = BigInt(R2 + unidadeOrganicaInt) % BigInt(97);
-    console.log(R3);
-
-    // Calcula o módulo 97
-    //const resto = processoInt % BigInt(97);
-    //const digitoVerificador = (BigInt(97) - resto) % BigInt(97);
-    const digitoVerificador = BigInt(98) - R3;
+    // Calcula o valor do dígito verificador
+    var digitoVerificador = BigInt(98) - (BigInt(numeroStringConcatenado) % BigInt(97));
 
     // Formata o dígito verificador com dois dígitos
     return String(digitoVerificador).padStart(2, '0');
 }
 
 module.exports = calcularDigitoVerificador;
-
-console.log(calcularDigitoVerificador('180740020244036301'))

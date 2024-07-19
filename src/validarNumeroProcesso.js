@@ -5,7 +5,8 @@ function validarNumeroProcesso(numeroProcesso) {
     const regex = /^\d{7}-\d{2}\.\d{4}\.\d{1}\.\d{2}\.\d{4}$/; 
     
     if (regex.test(numeroProcesso)==true) {
-        if (calcularDigitoVerificador(numeroProcesso.slice(0, 7))==numeroProcesso.slice(8, 10)) {
+        console.log('regex = true')
+        if (calcularDigitoVerificador(numeroProcesso)==numeroProcesso.slice(8, 10)) {
             if (numeroProcesso.slice(11, 15) <= new Date().getFullYear() && numeroProcesso.slice(11, 15) >= 1995) {
                 if (numeroProcesso.slice(16, 17) <= 9 && numeroProcesso.slice(16, 17) > 0) {
                     if (numeroProcesso.slice(18, 20) <= 90) {
@@ -26,14 +27,32 @@ function validarNumeroProcesso(numeroProcesso) {
         } else {
             return false;
         }    
+    } if (regex.test(numeroProcesso)==false && numeroProcesso.length > 18) {
+        console.log('regex = false')
+        numeroSemDV = numeroProcesso.replace(/[\.\/\.\/\.\/\-]/g, '', '');
+        numeroSemDV = numeroSemDV.slice(0, 7) + numeroSemDV.slice(9, 20);
+        if (calcularDigitoVerificador(numeroSemDV) == numeroProcesso.slice(7, 9)) {
+            if (numeroProcesso.slice(9, 13) <= new Date().getFullYear() && numeroProcesso.slice(9, 13) >= 1995) {
+                if (numeroProcesso.slice(13, 14) <= 9 && numeroProcesso.slice(13, 14) > 0) {
+                    if (numeroProcesso.slice(14, 16) <= 90) {
+                        if (numeroProcesso.slice(16, 20) <= 8999 && numeroProcesso.slice(16, 20) >= 1) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }    
     } else {
-        return regex.test(numeroProcesso);        
+        false;        
     }
 }
-<<<<<<< HEAD
-
-module.exports = validarNumeroProcesso;
-
-//console.log(validarNumeroProcesso('1606400-01.2024.4.03.6301'));
-=======
->>>>>>> 8f3b0a31c7dddc934662cecf2a459e48cfb8a13f
