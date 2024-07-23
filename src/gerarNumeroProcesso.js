@@ -1,5 +1,5 @@
 function gerarNumeroProcesso(numero) {
-    const calcularDigitoVerificador = require('./calculoDV');
+    const calcularDigitoVerificador = require('./CalculoDV');
     const data = new Date();
 
     const NNNNNNN = String(new Date().getDate()).padStart(2, '0')+String(new Date().getMonth()).padStart(2, '0')+String(numero);
