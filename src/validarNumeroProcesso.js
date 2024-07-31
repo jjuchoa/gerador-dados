@@ -3,8 +3,9 @@ function validarProcesso(numeroProcesso) {
 
     // Expressão regular para validar o formato do número de processo
     const regex = /^\d{7}-\d{2}\.\d{4}\.\d{1}\.\d{2}\.\d{4}$/; 
+    const regex2 = /[^a-zA-Z0-9\s]/g;
 
-    if (numeroProcesso == '') {
+    if (numeroProcesso.replace(/\s/g, '') == '' || numeroProcesso == null || numeroProcesso.replace(regex2, '') == '' || numeroProcesso.length < 10) {
         return '';        
     }
     if (regex.test(numeroProcesso)==true) {

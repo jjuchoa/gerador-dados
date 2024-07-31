@@ -24,20 +24,6 @@ const Subtitulo = styled.h3`
     margin-bottom: 10px;
 `
 
-const Resultado = styled.div`
-    display: flex;
-    justify-content: center;
-    align-itens: center;
-    margin-bottom: 20px;
-
-    p {
-        width: 200px;
-    }
-    
-    img {
-        width: 100px;
-    }
-`
 const Paragrafo = styled.p`
     color: #FFF;
     font-size: 16px;
@@ -47,16 +33,14 @@ const validar = require('../../ValidarNumeroProcesso');
 
 function Pesquisa() {
     const [resultadoValidacao, setresultadoValidacao] = useState('')
-    //let resposta = validar('1807400-65.2024.4.03.6301');
-    //let resposta = validar(processo);
 
     return (
         <PesquisaContainer>
             <Titulo>Gerar e validar número do processo</Titulo>
             <Subtitulo>Validar número do processo</Subtitulo>
-            <Input 
+            <Input type='text' minLength={10} maxLength={25} required="required" 
                 placeholder="Escreva aqui o número do processo"
-                onBlur={evento => setresultadoValidacao(validar(evento.target.value))}
+                onInput={evento => setresultadoValidacao(validar(evento.target.value))}
             />
         <section>
             <Paragrafo>{ resultadoValidacao }</Paragrafo>

@@ -2,20 +2,33 @@ import styled from "styled-components"
 
 const Input = styled.input`
     order: 1px solide #FFF;
-    background: transparent;
-    border: 1px solid #FFF;
+    background: #FFF;
+    border: 2px solid #FFF;
     padding: 20px 0px;
     border-radius: 10px;
-    width: 500px;
+    width: ${props => props.tamanho || '500px;'};
     height: 0px;
-    color: #FFF;
+    color: #000;
     font-size: 16px;
-    margin-bottom: 10px;
+    margin: ${props => props.margem || '0px 0px 10px 0px;'};
     text-align: center;
 
+    &:invalid {
+        border-color: red !important;
+    }
+    &:valid {
+    border-color: green !important;
+    }
+
     &::placeholder {
-        color: #FFF;
+        color: #000;
         font-size: 16px
+    }
+
+    & { 
+        -moz-appearance: textfield;
+        appearance: textfield;
+
     }
 `
 
