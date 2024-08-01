@@ -1,8 +1,9 @@
-import Input from '../Input'
-import styled from 'styled-components'
-import { useState } from 'react'
+import Input from '../Input';
+import styled from 'styled-components';
+import GeraCPF from '../GeraCPF';
+import { useState } from 'react';
 
-const PesquisaContainer = styled.section`
+const ProcessoContainer = styled.section`
     background-image: linear-gradient(90deg,#002F52 35%, #326589 165%);
     color: #FFF;
     text-align: center;
@@ -29,22 +30,28 @@ const Paragrafo = styled.p`
     font-size: 16px;
 `
 
-const validar = require('../../validarNumeroProcesso');
+const validar = require('../../validarCPF');
 
-function Pesquisa() {
+function CPF() {
     const [resultadoValidacao, setresultadoValidacao] = useState('')
 
     return (
-        <PesquisaContainer>
-            <Input type='text' minLength={10} maxLength={25} required="required"
+        <ProcessoContainer>
+            <Titulo>Gerar e validar número do CPF</Titulo>
+            <Subtitulo>Validar número do CPF</Subtitulo>
+            <Input type='text' minLength={11} maxLength={14} required="required" 
+                placeholder="Escreva aqui o número do CPF"
                 onInput={evento => setresultadoValidacao(validar(evento.target.value))}
             />
-        <section>
+        <section className='resultado'>
             <Paragrafo>{ resultadoValidacao }</Paragrafo>
         </section>
-        </PesquisaContainer>
+        <section className='gerar'>
+            <GeraCPF />
+        </section>
+        </ProcessoContainer>
 
     )    
 }
 
-export default Pesquisa
+export default CPF

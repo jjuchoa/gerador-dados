@@ -15,14 +15,13 @@ const Opcao = styled.li`
   min-width: 120px;
 `
 
-const textoOpcoes = ['PROCESSOS', 'CPFs']
+//const textoOpcoes = ['PROCESSO', 'CPF']
 
 function OpcoesHeader() {
     return (
         <Opcoes>
-          { textoOpcoes.map( (texto) => (
-            <Opcao><p>{texto}</p></Opcao>
-          ) ) }
+          <Opcao><p>PROCESSOS</p></Opcao>
+          <Opcao><p>CPF</p></Opcao>          
         </Opcoes>
     )
 }

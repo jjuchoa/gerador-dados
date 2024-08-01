@@ -1,6 +1,6 @@
 import Header from './componentes/Header';
-import Pesquisa from './componentes/Pesquisa';
-import GeraProcesso from './componentes/GeraProcesso';
+import Processo from './componentes/Processo';
+import CPF from './componentes/CPF';
 import styled from 'styled-components';
 
 
@@ -21,8 +21,10 @@ function App() {
     <AppContainer>
       <Header />
       <ConteudoContainer>
-        <Pesquisa/>
-        <GeraProcesso />
+        <Processo/>
+      </ConteudoContainer>
+      <ConteudoContainer>
+        <CPF/>
       </ConteudoContainer>
     </AppContainer>
   );

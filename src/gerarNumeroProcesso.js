@@ -1,5 +1,5 @@
 function gerarNumeroProcesso(numero, quantidade) {
-    const calcularDigitoVerificador = require('./CalculoDV');
+    const calcularDigitoVerificador = require('./calculoDV');
     var numeroGerado = [];
 
     if (numero == null || isNaN(numero) == true || numero == 1) {

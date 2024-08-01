@@ -2,9 +2,13 @@ function validarCPF(cpf) {
     // Remove caracteres não numéricos
     cpf = cpf.replace(/\D/g, '');
 
+    if (cpf == '' || cpf == null || cpf.length < 11) {
+        return '';        
+    }
+
     // Verifica se tem 11 dígitos
     if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
-        return false;
+        return 'O número do CPF não é válido';
     }
 
     // Validação do primeiro dígito verificador
@@ -16,7 +20,7 @@ function validarCPF(cpf) {
     primeiroDigito = primeiroDigito === 10 ? 0 : primeiroDigito;
 
     if (primeiroDigito !== parseInt(cpf[9])) {
-        return false;
+        return 'O número do CPF não é válido';
     }
 
     // Validação do segundo dígito verificador
@@ -26,11 +30,12 @@ function validarCPF(cpf) {
     }
     let segundoDigito = (soma * 10) % 11;
     segundoDigito = segundoDigito === 10 ? 0 : segundoDigito;
-
-    return segundoDigito === parseInt(cpf[10]);
+    
+    if (segundoDigito !== parseInt(cpf[10])) {
+        return 'O número do CPF não é válido';
+    } else {
+        return 'O número do CPF é válido';
+    }
 }
-<<<<<<< HEAD
 
 module.exports = validarCPF;
-=======
->>>>>>> 8f3b0a31c7dddc934662cecf2a459e48cfb8a13f

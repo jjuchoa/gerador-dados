@@ -44,7 +44,7 @@ const SectionOption = styled.section`
     justify-content: center;
 `
 
-const gerar = require('../../gerarNumeroProcesso');
+const gerar = require('../../gerarCPF');
 
 function VerificaValor(valor) {
     console.log(valor);
@@ -56,20 +56,13 @@ function VerificaValor(valor) {
     }
 }
 
-function GeraProcesso() {
+function GeraCPF() {
     const [numeroGerado, setnumeroGerado] = useState([]);
 
     return (        
         <GerarContainer>
-            <Subtitulo>Gerar número do processo</Subtitulo>
+            <Subtitulo>Gerar número do CPF</Subtitulo>
             <SectionOption>            
-                <Input 
-                    id='faixa' 
-                    maxLength={3} 
-                    required="required" 
-                    tamanho="200px"
-                    placeholder="Faixa"
-                />
                 <Input 
                     id='quantidade'
                     type='number' 
@@ -82,7 +75,6 @@ function GeraProcesso() {
                 <Botao onClick = {evento => 
                     setnumeroGerado(
                         gerar(
-                            VerificaValor(document.getElementById('faixa').value), 
                             VerificaValor(document.getElementById('quantidade').value)
                             ))}>
                     Gerar
@@ -98,4 +90,4 @@ function GeraProcesso() {
     )    
 }
 
-export default GeraProcesso
+export default GeraCPF

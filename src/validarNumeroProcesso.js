@@ -1,5 +1,5 @@
 function validarProcesso(numeroProcesso) {
-    const calcularDigitoVerificador = require('./CalculoDV');
+    const calcularDigitoVerificador = require('./calculoDV');
 
     // Expressão regular para validar o formato do número de processo
     const regex = /^\d{7}-\d{2}\.\d{4}\.\d{1}\.\d{2}\.\d{4}$/; 
