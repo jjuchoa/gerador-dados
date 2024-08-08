@@ -8,7 +8,6 @@ const GerarContainer = styled.section`
     color: #FFF;
     text-align: center;
     padding: 20px 0;
-    height: 2701px;
     width: 100%;
     display: flex;
     flex-direction:column;
