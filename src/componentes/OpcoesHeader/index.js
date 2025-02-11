@@ -17,11 +17,11 @@ const Opcao = styled.li`
 
 //const textoOpcoes = ['PROCESSO', 'CPF']
 
-function OpcoesHeader() {
+function OpcoesHeader({ onProcessoClick, onCPFClick }) {
     return (
         <Opcoes>
-          <Opcao><p>PROCESSOS</p></Opcao>
-          <Opcao><p>CPF</p></Opcao>          
+          <Opcao onClick={onProcessoClick}>PROCESSOS</Opcao>
+          <Opcao onClick={onCPFClick}>CPF</Opcao>          
         </Opcoes>
     )
 }

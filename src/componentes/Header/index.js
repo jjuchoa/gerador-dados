@@ -8,11 +8,11 @@ const HeaderContainer = styled.header`
     justify-content: left;
 `
 
-function Header () {
+function Header({ onProcessoClick, onCPFClick  }) {
     return (
         <HeaderContainer>
             <Logo/>
-            <OpcoesHeader/>   
+            <OpcoesHeader onProcessoClick={onProcessoClick} onCPFClick={onCPFClick} />   
         </HeaderContainer>
     )
 }

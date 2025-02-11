@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import Header from './componentes/Header';
 import Processo from './componentes/Processo';
 import CPF from './componentes/CPF';
@@ -23,17 +24,42 @@ const ConteudoContainer = styled.div`
 `
 
 function App() {
+  const [mostrarProcesso, setMostrarProcesso] = useState(false);
+  const [mostrarCPF, setMostrarCPF] = useState(false);
+
   return (
     <AppContainer>
-      <Header />
-      <ContainerAgrupador>
-        <ConteudoContainer>
-          <Processo/>
-        </ConteudoContainer>
-        <ConteudoContainer>
-          <CPF/>
-        </ConteudoContainer>
-      </ContainerAgrupador>
+      <Header 
+        onProcessoClick={() => {
+          setMostrarProcesso(true);
+          setMostrarCPF(false);
+        }} 
+        onCPFClick={() => {
+          setMostrarProcesso(false);
+          setMostrarCPF(true);
+        }} 
+      />
+      {mostrarProcesso && (
+        <ContainerAgrupador>
+          <ConteudoContainer>
+            <Processo />
+          </ConteudoContainer>
+        </ContainerAgrupador>
+      )}
+      {mostrarCPF && (
+        <ContainerAgrupador>
+          <ConteudoContainer>
+            <CPF />
+          </ConteudoContainer>
+        </ContainerAgrupador>
+      )}
+      {!mostrarProcesso && !mostrarCPF && (
+        <ContainerAgrupador>
+          <ConteudoContainer>
+            <Processo />
+          </ConteudoContainer>          
+        </ContainerAgrupador>
+      )}
     </AppContainer>
   );
 }
