@@ -4,7 +4,7 @@ import Botao from '../Botao'
 import { useState } from 'react'
 
 const GerarContainer = styled.section`
-    background-image: linear-gradient(90deg,#002F52 35%, #326589 165%);
+    background-image: ${({ theme }) => theme.colors.background};
     color: #FFF;
     text-align: center;
     padding: 20px 0;
@@ -12,18 +12,13 @@ const GerarContainer = styled.section`
     width: 100%;
     display: flex;
     flex-direction:column;
-`
+`;
 
 const Subtitulo = styled.h3`
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 10px;
-`
-
-const Paragrafo = styled.p`
-    color: #FFF;
-    font-size: 16px;
-`
+`;
 
 const Resultado = styled.div`
     justify-content: center;
@@ -36,13 +31,19 @@ const Resultado = styled.div`
         width: 1000px;
         display: contents;
     }
-`
+`;
+
+const Paragrafo = styled.p`
+    color: #FFF;
+    font-size: 16px;
+`;
+
 const SectionOption = styled.section`
     display: flex!important;
     flex-direction:row;
     width: 100%;
     justify-content: center;
-`
+`;
 
 const gerar = require('../../gerarNumeroProcesso');
 
@@ -79,12 +80,15 @@ function GeraProcesso() {
                     placeholder="Quantidade"
                     margem= "0px 20px 10px 20px"
                 />
-                <Botao onClick = {evento => 
-                    setnumeroGerado(
-                        gerar(
-                            VerificaValor(document.getElementById('faixa').value), 
-                            VerificaValor(document.getElementById('quantidade').value)
-                            ))}>
+                <Botao 
+                    class='br-button primary'
+                    type='button'
+                    onClick = {evento => 
+                        setnumeroGerado(
+                            gerar(
+                                VerificaValor(document.getElementById('faixa').value), 
+                                VerificaValor(document.getElementById('quantidade').value)
+                                ))}>
                     Gerar
                 </Botao>
             </SectionOption>

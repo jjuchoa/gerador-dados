@@ -3,31 +3,18 @@ import styled from 'styled-components'
 import { useState } from 'react'
 
 const PesquisaContainer = styled.section`
-    background-image: linear-gradient(90deg,#002F52 35%, #326589 165%);
+    background-image: ${({ theme }) => theme.colors.background};
     color: #FFF;
     text-align: center;
     padding: 20px 0;
-    height: 2701px;
-    width: 100%;
-`
-
-const Titulo = styled.h2`
-    color: #FFF;
-    font-size: 36px;
-    text-align: center;
-    width: 100%
-`
-
-const Subtitulo = styled.h3`
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
-`
+    width: ${({ theme }) => theme.sizes.width};
+    height: ${({ theme }) => theme.sizes.height};
+`;
 
 const Paragrafo = styled.p`
     color: #FFF;
     font-size: 16px;
-`
+`;
 
 const validar = require('../../validarNumeroProcesso');
 

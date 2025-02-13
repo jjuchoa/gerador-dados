@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 const Opcoes = styled.ul`
   display: flex;
-`
+`;
+
 const Opcao = styled.li`
   font-size: 16px;
   display: flex;
@@ -13,7 +14,7 @@ const Opcao = styled.li`
   padding: 0 5px;
   cursor: pointer;
   min-width: 120px;
-`
+`;
 
 //const textoOpcoes = ['PROCESSO', 'CPF']
 

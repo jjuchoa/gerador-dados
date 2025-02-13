@@ -6,7 +6,7 @@ const Home = () => {
   const [meals] = useState(data)
   return (
     <div>
-      <Header title='Cr Menu💖' />
+      <Header title='' />
     </div>
   );
 }

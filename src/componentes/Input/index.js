@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Input = styled.input`
-    order: 1px solide #FFF;
+    order: 1px solid ${({ theme }) => theme.colors.primary};
     background: #FFF;
     border: 2px solid #FFF;
     padding: 20px 0px;
@@ -30,6 +30,6 @@ const Input = styled.input`
         appearance: textfield;
 
     }
-`
+`;
 
 export default Input

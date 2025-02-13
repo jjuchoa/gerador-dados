@@ -3,25 +3,26 @@ import Header from './componentes/Header';
 import Processo from './componentes/Processo';
 import CPF from './componentes/CPF';
 import styled from 'styled-components';
+import '@govbr-ds/core/dist/core.min.css';
 
 
 const AppContainer = styled.div`
-      width: 100vw;
-      height: 85vh;
-      background-image: linear-gradient(90deg,#002F52 35%, #326589 165%);
-`
+  width: ${({ theme }) => theme.sizes.width};
+  height: ${({ theme }) => theme.sizes.height};
+  background-image: ${({ theme }) => theme.colors.background};
+`;
 const ContainerAgrupador = styled.div`
-      display: flex;
-      flex-direction: row;
-      width: 100vw;
-      height: 100%;
-`
+  display: flex;
+  flex-direction: row;
+  width: ${({ theme }) => theme.sizes.width};
+  height: 100%;
+`;
 const ConteudoContainer = styled.div`
-      display: flex;
-      flex-direction: column;
-      width: 100vw;
-      height: 100%;
-`
+  display: flex;
+  flex-direction: column;
+  width: ${({ theme }) => theme.sizes.width};
+  height: 100%;
+`;
 
 function App() {
   const [mostrarProcesso, setMostrarProcesso] = useState(false);
